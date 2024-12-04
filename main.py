@@ -5,9 +5,10 @@ from tqdm import tqdm
 from loguru import logger
 
 from models.load_model import load_model, load_model_ollama
-from models.router.router import SequenceClassificationRouter
+from models.router.router import SequenceClassificationRouter, OpenAISequenceClassifier
 from models.retrieve.retriever import Retriever, Retriever_Milvus
 from models.model import RAGModel
+from dotenv import load_dotenv
 
 BATCH_SIZE = 20
 
@@ -96,18 +97,24 @@ def generate_predictions(dataset_path, participant_model):
 
 if __name__ == "__main__":
     # Set the environment variable for the mock API
+    load_dotenv()
     os.environ["CRAG_MOCK_API_URL"] = "http://localhost:8000"
 
     # Load the model
-    api_key = "<your-api-key>"
-    base_url = "<your-base-url>"
-    model_name = "gpt-4o"
+    # api_key = "<your-api-key>"
+    api_key = os.getenv("INTERWEB_APIKEY")
+    # base_url = "<your-base-url>"
+    base_url = "https://interweb.l3s.uni-hannover.de"
+    # model_name = "llama3.1:70b"
+    model_name= "gpt-4o"
     chat_model = load_model(model_name=model_name, api_key=api_key, base_url=base_url, temperature=0)
     # chat_model = load_model_ollama(model_name=model_name, temperature=0)
 
     # Load the retriever
-    embedding_model_path = "models/retrieve/embedding_models/bge-m3"
+    # embedding_model_path = "models/retrieve/embedding_models/bge-m3"
+    embedding_model_path = "BAAI/bge-m3"
     reranker_model_path = "models/retrieve/reranker_models/bge-reranker-v2-m3"
+    # reranker_model_path = "BAAI/bge-reranker-v2-m3"
 
     retriever = Retriever(10, 5, embedding_model_path, reranker_model_path, rerank=True)
     # To use the retriever with Milvus, uncomment the following lines and comment the previous line
@@ -117,27 +124,30 @@ if __name__ == "__main__":
     # retriever = Retriever_Milvus(10, 5, collection_name, uri, embedding_model_path, reranker_model_path, rerank=True)
 
     # Load the domain router
-    domain_router = SequenceClassificationRouter(
-        model_path="models/llm/Meta-Llama-3-8B-Instruct-hf",
-        classes=["finance", "music", "movie", "sports", "open"],
-        device_map="auto",
-        peft_path="models/router/domain",
-        use_bits_and_bytes=True,
-        use_peft=True,
-    )
+    # domain_router = SequenceClassificationRouter(
+    #     model_path="models/llm/Meta-Llama-3-8B-Instruct-hf",
+    #     # model_path="meta-llama/Meta-Llama-3-8B-Instruct",
+    #     classes=["finance", "music", "movie", "sports", "open"],
+    #     device_map="auto",
+    #     peft_path="models/router/domain",
+    #     use_bits_and_bytes=True,
+    #     use_peft=True,
+    # )
+    domain_router = OpenAISequenceClassifier(api_key, ["finance", "music", "movie", "sports", "open"], model="llama3.1:8b-instruct-q8_0")
 
     # Load the dynamic router
-    use_kg = True
-    use_dynamic = True
+    use_kg = False
+    use_dynamic = False
     if use_dynamic:
-        dynamic_router = SequenceClassificationRouter(
-            model_path="models/llm/Meta-Llama-3-8B-Instruct-hf",
-            classes=['static', 'slow-changing', 'fast-changing', 'real-time'],
-            device_map="auto",
-            peft_path="models/router/dynamic",
-            use_bits_and_bytes=True,
-            use_peft=True
-        )
+        # dynamic_router = SequenceClassificationRouter(
+        #     model_path="models/llm/Meta-Llama-3-8B-Instruct-hf",
+        #     classes=['static', 'slow-changing', 'fast-changing', 'real-time'],
+        #     device_map="auto",
+        #     peft_path="models/router/dynamic",
+        #     use_bits_and_bytes=True,
+        #     use_peft=True
+        # )
+        dynamic_router = OpenAISequenceClassifier(api_key, ['static', 'slow-changing', 'fast-changing', 'real-time'], model="llama3.1:8b-instruct-q8_0")
     # Initialize the RAG model
         rag_model = RAGModel(chat_model, retriever, domain_router, dynamic_router, use_kg=use_kg)
     else:
@@ -147,6 +157,8 @@ if __name__ == "__main__":
     queries, ground_truths, predictions = generate_predictions(dataset_path, rag_model)
     
     # Save the predictions
+    if ":" in model_name:
+        model_name = model_name.replace(":", "_")
     output_path = f"results/{model_name}_predictions.jsonl"
     with open(output_path, "w") as file:
         for query, ground_truth, prediction in zip(queries, ground_truths, predictions):
