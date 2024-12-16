@@ -10,7 +10,7 @@ from models.retrieve.retriever import Retriever, Retriever_Milvus
 from models.model import RAGModel
 from dotenv import load_dotenv
 
-BATCH_SIZE = 20
+BATCH_SIZE = 5
 
 def load_data_in_batches(dataset_path, batch_size):
     """
@@ -105,15 +105,16 @@ if __name__ == "__main__":
     api_key = os.getenv("INTERWEB_APIKEY")
     # base_url = "<your-base-url>"
     base_url = "https://interweb.l3s.uni-hannover.de"
-    # model_name = "llama3.1:70b"
-    model_name= "gpt-4o"
+    model_name = "llama3.1:70b"
+    # model_name= "gpt-4o"
     chat_model = load_model(model_name=model_name, api_key=api_key, base_url=base_url, temperature=0)
     # chat_model = load_model_ollama(model_name=model_name, temperature=0)
 
     # Load the retriever
-    # embedding_model_path = "models/retrieve/embedding_models/bge-m3"
-    embedding_model_path = "BAAI/bge-m3"
-    reranker_model_path = "models/retrieve/reranker_models/bge-reranker-v2-m3"
+    embedding_model_path = "models/retrieve/embedding_models/bge-m3"
+    # embedding_model_path = "BAAI/bge-m3"
+    # reranker_model_path = "models/retrieve/reranker_models/bge-reranker-v2-m3"
+    reranker_model_path = "models/retrieve/embedding_models/bge-reranker-v2-m3"
     # reranker_model_path = "BAAI/bge-reranker-v2-m3"
 
     retriever = Retriever(10, 5, embedding_model_path, reranker_model_path, rerank=True)
@@ -137,7 +138,7 @@ if __name__ == "__main__":
 
     # Load the dynamic router
     use_kg = False
-    use_dynamic = False
+    use_dynamic = True
     if use_dynamic:
         # dynamic_router = SequenceClassificationRouter(
         #     model_path="models/llm/Meta-Llama-3-8B-Instruct-hf",
@@ -153,7 +154,7 @@ if __name__ == "__main__":
     else:
         rag_model = RAGModel(chat_model, retriever, domain_router, use_kg=use_kg)
     # Generate predictions
-    dataset_path = "example_data/dev_data.jsonl.bz2"
+    dataset_path = "example_data/crag_task_1_dev_v4_release.jsonl.bz2"
     queries, ground_truths, predictions = generate_predictions(dataset_path, rag_model)
     
     # Save the predictions

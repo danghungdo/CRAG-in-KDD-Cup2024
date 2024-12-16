@@ -93,12 +93,12 @@ class Retriever:
     def __init__(self, top_k, top_n, embedding_model_path, reranker_model_path=None, rerank=False, device="cuda"):
         self.top_k = top_k
         self.top_n = top_n
-        # self.embedding_model = HuggingFaceEmbedding(
-        #     model_name=embedding_model_path, device=device
-        # )
-        os.environ["OPENAI_API_BASE"] = os.getenv("INTERWEB_HOST", "https://interweb.l3s.uni-hannover.de/v1")
-        os.environ["OPENAI_API_KEY"] = os.getenv("INTERWEB_APIKEY")
-        self.embedding_model = OpenAIEmbedding(model_name="bge-m3:567m", device=device)
+        self.embedding_model = HuggingFaceEmbedding(
+            model_name=embedding_model_path, device=device
+        )
+        # os.environ["OPENAI_API_BASE"] = os.getenv("INTERWEB_HOST", "https://interweb.l3s.uni-hannover.de/v1")
+        # os.environ["OPENAI_API_KEY"] = os.getenv("INTERWEB_APIKEY")
+        # self.embedding_model = OpenAIEmbedding(model_name="bge-m3:567m", device=device)
         self.rerank = rerank
         if self.rerank:
             self.reranker = SentenceTransformerRerank(top_n=self.top_n, model=reranker_model_path, device=device)   
