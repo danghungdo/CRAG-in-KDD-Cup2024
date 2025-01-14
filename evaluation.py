@@ -44,7 +44,8 @@ def evaluate_predictions(queries, ground_truths, predictions, evaluation_model):
         predictions, total=len(predictions), desc="Evaluating Predictions"
     )):
         query = queries[_idx]
-        ground_truth = ground_truths[_idx].strip()
+        # ground_truth = ground_truths[_idx].strip()
+        ground_truth = str(ground_truths[_idx]).strip()
         prediction = prediction.strip()
         
         ground_truth_lowercase = ground_truth.lower()
@@ -85,13 +86,14 @@ def evaluate_predictions(queries, ground_truths, predictions, evaluation_model):
 
 if __name__ == "__main__":
     # Load the model
-    api_key = "<your-api-key>"
-    base_url = "<your-api-base>"
-    evaluation_model = load_model(model_name="gpt-4-turbo", api_key=api_key, base_url=base_url, temperature=0)
+    # api_key = "<your-api-key>"
+    api_key = "ollama" # random
+    # base_url = "<your-api-base>"
+    base_url = "http://gpunode04.kbs:11434/v1/"
+    evaluation_model = load_model(model_name="gemma2:27b", api_key=api_key, base_url=base_url, temperature=0)
 
     # Evaluate the predictions
-    model_name = "Llama3-70B"
-    predictions_path = f"results/{model_name}_predictions.jsonl"
+    predictions_path = "results/llama3.3_70b_predictions_task1.jsonl"
     with open(predictions_path, "r") as file:
         predictions = [json.loads(line) for line in file]
 

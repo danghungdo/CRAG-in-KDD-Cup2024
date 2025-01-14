@@ -23,7 +23,8 @@ if __name__ == "__main__":
     api_key = os.getenv("INTERWEB_APIKEY")
     # base_url = "<your-base-url>"
     base_url = "https://interweb.l3s.uni-hannover.de"
-    model_name = "llama3.1:70b"
+    # base_url = "http://gpunode04.kbs:11434/v1/"
+    model_name = "llama3.3:70b"
     # model_name= "gpt-4o"
     chat_model = load_model(model_name=model_name, api_key=api_key, base_url=base_url, temperature=0)
     messages = [

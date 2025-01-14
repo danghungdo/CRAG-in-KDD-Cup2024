@@ -94,14 +94,7 @@ class OpenAISequenceClassifier:
         )
         predicted_class = response.choices[0].message.content
         return predicted_class
-        #     print(f"Predicted class: {predicted_class}")
-        #     if predicted_class in self.classes:
-        #         print(f"Predicted class: {predicted_class}")
-        #         return predicted_class
-        #     else:
-        #         return "Unknown"  # Handle unexpected outputs gracefully
-        # except Exception as e:
-        #     return f"Error: {e}"
+
 
 
 if __name__ == "__main__":
