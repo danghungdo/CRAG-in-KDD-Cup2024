@@ -2,7 +2,6 @@
 __pycache__
 api_responses/*.json
 models/router/train*
-results
 local_evaluation_*.py
 *test*
 log
