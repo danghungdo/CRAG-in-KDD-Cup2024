@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8           # Number of CPUs to request
 #SBATCH --gpus=1                    # Number of GPUs to request
 #SBATCH --time=1-0                  # 1 day
-#SBATCH --nodelist=gpunode102       # Name of the node you want to request
+#SBATCH --nodelist=gpunode06       # Name of the node you want to request
 module load mamba
 
 # Activate your environment, you have to create it first
@@ -19,3 +19,4 @@ python main.py
 
 ray stop
 
+# python false_premise_detector.py

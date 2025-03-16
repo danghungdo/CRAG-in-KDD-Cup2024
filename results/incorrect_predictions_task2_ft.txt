@@ -1,0 +1,1168 @@
+Query: what are the countries that are located in southern africa.
+Ground Truth: angola, botswana, the comoros, eswatini, lesotho, madagascar, malawi, mauritius, mozambique, namibia, south africa, zambia, and zimbabwe.
+Prediction: Angola, Botswana, Lesotho, Mozambique, Namibia, South Africa, Swaziland, Zambia, Zimbabwe
+
+Query: how long is the longest river in alabama?
+Ground Truth: the longest river that flows through alabama, the tennessee river, is 652 miles long.
+Prediction: 305 miles
+
+Query: longest known length of a tiger shark in meters.
+Ground Truth: 7.5 meters
+Prediction: 5.5 m
+
+Query: what percentage of the year was adele's album number one on the billboard 200 in 2016?
+Ground Truth: ~13% of the year
+Prediction: 10/52 or 19%
+
+Query: who were the founding members of the band the who?
+Ground Truth: the founding members of the who were roger daltrey, pete townshend and john entwistle.
+Prediction: Roger Daltrey, Pete Townshend, John Entwistle, Keith Moon.
+
+Query: what are the names of all the movies in the the godfather franchise?
+Ground Truth: the names of the movies in the the godfather franchise are "the godfather", "the godfather part ii", and "the godfather part iii".
+Prediction: The Godfather, The Godfather Part II, The Godfather Part III, The Godfather, Coda: The Death of Michael Corleone, The Godfather Trilogy: 1901–1980
+
+Query: what was sfwl's closing stock price on the most recent friday?
+Ground Truth: $1.76
+Prediction: $1.75
+
+Query: is louis, martin & michael different originally in french
+Ground Truth: no
+Prediction: Yes
+
+Query: what team will manchester utd go head-to-head against in their next match in eng-premier league?
+Ground Truth: sheffield utd
+Prediction: Brentford
+
+Query: can you tell me where kanye west is originally from?
+Ground Truth: us
+Prediction: Atlanta
+
+Query: how many movies has andrew garfield been casted as spiderman
+Ground Truth: 3 movies
+Prediction: 4
+
+Query: how many lakes are in texas?
+Ground Truth: 223
+Prediction: 7,000
+
+Query: on average, what was the daily high stock price of xpev over the past week?
+Ground Truth: $9.51
+Prediction: $9.23
+
+Query: how many appearances did gloria estefan make in the superbowl by 2024?
+Ground Truth: the artist gloria estefan had a total of three superbowl appearances.
+Prediction: 2
+
+Query: what's the name of gordon ramsay's restaurant in at caesars?
+Ground Truth: gordon ramsay hell’s kitchen
+Prediction: Gordon Ramsay Pub & Grill
+
+Query: what is the name of travis scott's latest album?
+Ground Truth: utopia
+Prediction: K‐POP
+
+Query: how many goals did lens score last week?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: how many times has taylor swift won the billboard award for best country artist?
+Ground Truth: taylor swift has won the billboard award for best country artist two times, in 2013 and 2022.
+Prediction: 3
+
+Query: when did after 7 start performing?
+Ground Truth: 1988
+Prediction: 1987
+
+Query: how many times has jennifer lawrence been named as one of the highest-paid actresses in the world by forbes?
+Ground Truth: jennifer lawrence has been named as one of the highest-paid actresses in the world by forbes twice, in 2015 and 2016.
+Prediction: At least 3
+
+Query: which actor portrayed james bond in "casino royale"?
+Ground Truth: daniel craig
+Prediction: David Niven
+
+Query: was the ten commandments number 6: thou shalt not commit adultery the movie's original name?
+Ground Truth: yes
+Prediction: The final answer is: No
+
+Query: what was szzl's opening price on the last friday?
+Ground Truth: $22.50
+Prediction: $10.85
+
+Query: can you tell me the opening stock price of landp on the last friday?
+Ground Truth: $19.88
+Prediction: $19.98
+
+Query: what was taylor swifts age when she released her debut album?
+Ground Truth: 16 years old
+Prediction: 17
+
+Query: how many times has justin bieber won the american music award for artist of the year?
+Ground Truth: 2
+Prediction: 1
+
+Query: how many daughters do ryan reynolds and blake have?
+Ground Truth: four
+Prediction: 3
+
+Query: what was the total number of shares traded for special opportunities fund during the first week of february?
+Ground Truth: 93600
+Prediction: 131,040
+
+Query: what are the 3 biggest lakes in new york?
+Ground Truth: the 3 biggest lakes in new york are lake erie, lake ontario and lake champlain.
+Prediction: Lake Erie, Lake Ontario, Oneida Lake
+
+Query: which states do not require auto insurance?
+Ground Truth: virginia, new hampshire
+Prediction: New Hampshire, Virginia, South Carolina
+
+Query: how many people has taylor swift publicly dated?
+Ground Truth: 12
+Prediction: 15
+
+Query: what is the name of vin diesel's upcoming action comedy?
+Ground Truth: invalid question
+Prediction: M.U.S.C.L.E.
+
+Query: what's the closing price of voyager therapeutics when it closed higher last time?
+Ground Truth: $7.71
+Prediction: $8.18
+
+Query: what age did abraham lincoln begin his presidency?
+Ground Truth: 52 years old
+Prediction: 52
+
+Query: who took the oscar for best visual effects in 1997?
+Ground Truth: independence day
+Prediction: Volker Engel, Douglas Smith, Clay Pinney, Joseph Viskocil
+
+Query: in their matches from the previous week, what is the total number of goals forced by brentford?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: who are the current members of the band eagles?
+Ground Truth: the current members of eagles are don henley, joe walsh, timothy b. schmit, deacon frey, and vince gill.
+Prediction: Don Henley, Deacon Frey, Vince Gill, Timothy B. Schmit
+
+Query: who is younger, timothee chalamet or tom holland?
+Ground Truth: tom holland is younger at the age of 27 while timothee chalamet is 28 years old.
+Prediction: They're equal
+
+Query: when was disney's first feature-length film pinocchio, released?
+Ground Truth: invalid question
+Prediction: 1940
+
+Query: which year did oprah reach $340 million net worth?
+Ground Truth: 1999
+Prediction: 1995
+
+Query: what's bmn's market price right now?
+Ground Truth: i don't know
+Prediction: $23.55
+
+Query: what is the name of victoria beckham's fashion line?
+Ground Truth: invalid question
+Prediction: Victoria Beckham
+
+Query: which cars movie had the higher box office gross worldwide, the first or the second?
+Ground Truth: the second
+Prediction: First
+
+Query: how many times has abigail johnson been named as one of the most powerful women in the world by forbes?
+Ground Truth: abigail johnson has been named as one of the most powerful women in the world by forbes seven times.
+Prediction: At least 1
+
+Query: was haunted house released before the year 1960?
+Ground Truth: no
+Prediction: Yes
+
+Query: who was the bassist for the band the beatles?
+Ground Truth: invalid question
+Prediction: Paul McCartney
+
+Query: how many movies has julia roberts been in from 2000 to 2010?
+Ground Truth: julia roberts was in 19 movies from 2000 to 2010.
+Prediction: 7
+
+Query: how many live action disney movies are there?
+Ground Truth: there are 22 live action disney movies.
+Prediction: 23
+
+Query: what is the total number of weeks elvis presley's songs spent at number one on the billboard hot 100?
+Ground Truth: his number one singles spent a total of 80 weeks at number one
+Prediction: 79
+
+Query: which company has a higher dividend yield, costco or intel?
+Ground Truth: as of the current financial data, costco has a higher dividend yield than intel, with a dividend yield of 2.5% compared to intel's 1.24%.
+Prediction: Intel
+
+Query: how many floors (including floors both above and below ground) does the merdeka 118 have?
+Ground Truth: 123
+Prediction: 118
+
+Query: which was the better selling album in the us, thriller or hotel california?
+Ground Truth: thriller
+Prediction: Hotel California
+
+Query: how long has the current president of the us been in power?
+Ground Truth: the current president of the us, joe biden, has been in power since 2020.
+Prediction: 3 years
+
+Query: which oceans movie did they steal the most money?
+Ground Truth: danny ocean and his crew walked away with their highest payday in ocean's thirteen. in the span of three minutes and twenty seconds, ocean and his accomplices stole $500 million from bank's casino and mugged him of his sentimentally valued diamond necklaces worth $250 million
+Prediction: Ocean's Eleven
+
+Query: how much was apple earnings per share in the most recent earnings report date 02/05/2024
+Ground Truth: invalid question
+Prediction: 7.17
+
+Query: how many animated movies has reese witherspoon been in?
+Ground Truth: reese witherspoon has been in 4 animated movies.
+Prediction: At least 2
+
+Query: what was the weekly low stock price of inflection point acquisition corp. ii unit in the most recent week?
+Ground Truth: $10.47
+Prediction: $10.44
+
+Query: what's the current stock price of merrimack pharmaceuticals?
+Ground Truth: i don't know
+Prediction: $14.73
+
+Query: who was the first actor to play the role of a comic book hero in a live-action movie?
+Ground Truth: warren hall was the first actor to play the role of a superhero in a live-action movie, in his iconic portrayal of mandrake the magician in 1939, directed by norman deming and sam nelson.
+Prediction: Kirk Alyn
+
+Query: what movies are coming out in july 2024?
+Ground Truth: deadpool & wolverine, despicable me 4, twisters, beverly hills cop: axel f
+Prediction: Despicable Me 4, Deadpool & Wolverine, Twisters, The Fabulous Four, Project Artemis
+
+Query: in 51st grammy (2008), which artist took home the best new artist?
+Ground Truth: adele
+Prediction: Amy Winehouse
+
+Query: list the top 3 sports movies that were based on real life events.
+Ground Truth: raging bull (1980), moneyball (2011) a league of their own (1992)
+Prediction: Rudy, Pride of Yankees, The Fighter
+
+Query: who were the members of the band green day?
+Ground Truth: the members of green day are billie joe armstrong, mike dirnt, tré cool, jason white, and jason freese.
+Prediction: Billie Joe Armstrong, Mike Dirnt, Tré Cool, Jason White, John Kiffmeyer
+
+Query: who are the top three artists with the most monthly listeners on spotify currently?
+Ground Truth: the weeknd, taylor swift, drake
+Prediction: The Weeknd, Miley Cyrus, Taylor Swift
+
+Query: what is the name of millie bobby brown's upcoming fashion line?
+Ground Truth: invalid question
+Prediction: Florence by Mills
+
+Query: how many hardware units has nintendo sold?
+Ground Truth: 863.07 million
+Prediction: 228.86 million
+
+Query: how many kids does justin beiber have?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: who won the oscar best actor in 2019?
+Ground Truth: rami malek
+Prediction: Joaquin Phoenix
+
+Query: what is the highest-grossing film that was rated r?
+Ground Truth: joker
+Prediction: The Passion of the Christ
+
+Query: is chris evans most famouse for iron man role?
+Ground Truth: no, robert downey jr's iron man and chris evans' captain america
+Prediction: invalid question
+
+Query: what was the first movie to feature a predominantly deaf cast and use american sign language as its primary language?
+Ground Truth: the first movie to feature a predominantly deaf cast and use american sign language as its primary language was "coda" in 2021 , first best picture winner to feature a predominantly deaf cast.
+Prediction: Deafula
+
+Query: what is taylor swift newest song/album?
+Ground Truth: 1989 (taylor's version)
+Prediction: The Tortured Poets Department
+
+Query: can you reveal the identity of the individual or entity that owned the company behind the publication of playgirl in 2017?
+Ground Truth: invalid question
+Prediction: 1-800-PHONESEX
+
+Query: how many foo fighters music videos has dave grohl directed?
+Ground Truth: dave grohl of the foo fighters has directed 7 foo fighters' music videos.
+Prediction: Several
+
+Query: what are justin timberlake's three most recent releases?
+Ground Truth: everything i thought it was, man of the woods, the 20/20 experience
+Prediction: Man of the Woods, Everything I Thought It Was, Selfish
+
+Query: what's the eps of dks?
+Ground Truth: 12.94
+Prediction: $2.85
+
+Query: how many movies has chris hemsworth played thor in?
+Ground Truth: chris hemsworth has played thor in eight movies.
+Prediction: 9
+
+Query: what was the global box office revenue for neverwas?
+Ground Truth: 7292175
+Prediction: $11,246
+
+Query: when is meghan markle planning to launch her new upcoming podcast
+Ground Truth: invalid question
+Prediction: Spring 2024
+
+Query: what is the source of the cooling system for the almaraz nuclear power plant?
+Ground Truth: tagus river
+Prediction: Arrocampo Reservoir
+
+Query: what's the current stock price of spi energy co.?
+Ground Truth: $0.62
+Prediction: $0.61
+
+Query: how many languages does sundar pichai speak
+Ground Truth: 2
+Prediction: 3
+
+Query: how many musicals has hugh jackman performed in?
+Ground Truth: hugh jackman has performed in 11 different musicals.
+Prediction: At least 5
+
+Query: who are the original band members of pink floyd?
+Ground Truth: the original band was made up of roger "syd" barrett, roger waters, david gilmour, nick mason, and richard wright.
+Prediction: Syd Barrett, Roger Waters, Nick Mason, Richard Wright
+
+Query: what was the total trading volume of metlife during the first week of february?
+Ground Truth: 27965800
+Prediction: 39,151,120
+
+Query: for how long did rihanna take a break from making music?
+Ground Truth: she didn't release any music between 2017 and 2022, so 5 years.
+Prediction: 7 years
+
+Query: who painted the ceiling of the palace of versailles?
+Ground Truth: jean-baptiste de champaigne
+Prediction: François Lemoyne
+
+Query: when was the interview released in japan?
+Ground Truth: invalid question
+Prediction: Never
+
+Query: what was the premiere date of freddy vs. jason vs. ash?
+Ground Truth: 2011-01-11
+Prediction: November 2007
+
+Query: when did one for all start performing together?
+Ground Truth: 1993
+Prediction: 1997
+
+Query: in what movie did kelly gallant first start their acting career?
+Ground Truth: talons of the eagle
+Prediction: TC 2000
+
+Query: how many dog life spans are in a single human life span?
+Ground Truth: given the average lifespan, there are about 7-8 dog lifespans in a single human life span.
+Prediction: 6.92
+
+Query: what was the month it was announced they would create star war the force awakens?
+Ground Truth: it was announced in the month of november 2014.
+Prediction: October
+
+Query: how many times has jennifer lawrence been named as one of forbes' highest-paid actresses?
+Ground Truth: jennifer lawrence has been named as one of forbes' highest-paid actresses two times, in 2015 and 2016.
+Prediction: At least 3
+
+Query: what is the title that daniel isn't real had originally?
+Ground Truth: daniel isn't real
+Prediction: In This Way I Was Saved
+
+Query: who are the owners of the nine mile point nuclear generating station?
+Ground Truth: constellation energy, long island power authority
+Prediction: Constellation, Exelon, LIPA
+
+Query: which university has more students, rutgers or ohio state?
+Ground Truth: rutgers
+Prediction: Ohio State
+
+Query: how many nations does mount takahe stretch across?
+Ground Truth: 0
+Prediction: 1
+
+Query: can you name a twilight character who can control and manipulate the elements, including water, fire, earth, and air?
+Ground Truth: in the twilight series, there is a character named benjamin, who can manipulate the elements: earth, water, air, and fire.
+Prediction: invalid question
+
+Query: can you tell me the average daily high of bkr for the past week?
+Ground Truth: $30.22
+Prediction: $29.51
+
+Query: name the last five albums by taylor swift.
+Ground Truth: red (taylor's version), midnights, speak now (taylor's version),1989 (taylor's version),and the tortured poets department
+Prediction: 1989 (Taylor’s Version), Speak Now (Taylor’s Version), Midnights, Red (Taylor’s Version), Fearless (Taylor’s Version)
+
+Query: how many times did tom cruise win people's choice awards
+Ground Truth: 2
+Prediction: 1
+
+Query: how many words does eminem's song rap god have in it?
+Ground Truth: rap god by eminem has 1,560 words
+Prediction: 1551
+
+Query: how many meters taller is vajont dam than grand ethiopian renaissance dam?
+Ground Truth: 117
+Prediction: 116.5
+
+Query: who are the bandmates for the band fleetwood mac?
+Ground Truth: the original members of fleetwood mac were mick fleetwood, john mcvie, peter green, and jeremy spencer.
+Prediction: Mick Fleetwood, John McVie, Christine McVie, Stevie Nicks
+
+Query: what is a movie to feature a person who can shape-shift into any animal they desire?
+Ground Truth: a movie that features a person who can shape-shift into any animal they desire was "dungeons and dragons" in 2023, which starred sophia lillis as a druid that can shape shift into anything she wants.
+Prediction: DuckTales
+
+Query: who is the last emperor of the qara khitai?
+Ground Truth: kuchlug
+Prediction: Yelü Zhilugu
+
+Query: in their upcoming fixture in eng-premier league, which team will liverpool face off against?
+Ground Truth: everton
+Prediction: Brighton
+
+Query: how many singers have won the grammy award for album of the year at least twice?
+Ground Truth: a total of 6 singers have won the grammy award for album of the year at least twice.
+Prediction: 4
+
+Query: how many more monthy listeners on spotify does the weeknd have than taylor swift?
+Ground Truth: ~12.01 million
+Prediction: The Weeknd has fewer monthly listeners than Taylor Swift, so the difference would be in favor of Taylor Swift, but since the question asks how many more The Weeknd has, the answer is: 0
+
+Query: what is the height of the observatory of the burj khalifa?
+Ground Truth: 555.7 m
+Prediction: 500 m
+
+Query: how many toys does andy have in the third toy story movie?
+Ground Truth: 17-year-old andy has only twelve of his toys.
+Prediction: 15+
+
+Query: who are the owners of the gundremmingen nuclear power plant?
+Ground Truth: rwe, preussenelektra
+Prediction: Kernkraftwerk Gundremmingen GmbH
+
+Query: what's the percentage change in spotify premium subscribers from the start of the 2015 fiscal year and the end of the 2020 fiscal year?
+Ground Truth: 761%
+Prediction: 562%
+
+Query: what is the name of nicki minaj's upcoming world tour?
+Ground Truth: invalid question
+Prediction: The Pink Friday 2 World Tour
+
+Query: which dune movie has better music, 1984 or 2021?
+Ground Truth: the music for dune 2021 is more striking
+Prediction: 1984
+
+Query: what is the name of the restaurant founded by the star of joe bell
+Ground Truth: wahlburgers
+Prediction: invalid question
+
+Query: how much is white truffle, as the most expensive food in the world?
+Ground Truth: invalid question
+Prediction: $3,600/pound
+
+Query: for girls' night out, what was the release date?
+Ground Truth: 2017-01-22
+Prediction: October 29
+
+Query: what is the total screentime of emma watson in the 9 original harry potter movies?
+Ground Truth: invalid question
+Prediction: 205:00
+
+Query: who are all the members of rolling stones?
+Ground Truth: mick jagger, keith richards, ronnie wood, and charlie watts.
+Prediction: Mick Jagger, Keith Richards, Ronnie Wood, Steve Jordan, Darryl Jones, Chuck Leavell, Bernard Fowler, Matt Clifford, Tim Ries, Karl Denson, Chanel Haynes
+
+Query: how many different record labels has eminem been signed for?
+Ground Truth: throughout his career, eminem has been signed to 5 different record labels.
+Prediction: 2
+
+Query: which movie has a higher number of academy awards, the matrix or star wars: episode iv - a new hope?
+Ground Truth: star wars iv - a new hope has 7 total academy while the matrix won 4 academy awards.
+Prediction: Star Wars
+
+Query: which university has a higher acceptance rate, harvard or stanford?
+Ground Truth: stanford univeristy
+Prediction: Harvard
+
+Query: do you know the birth year of the sports?
+Ground Truth: 1976
+Prediction: 7000 BCE
+
+Query: what's the total number of floors in burj khalifa, including all floors above and below ground, can you tell me that?
+Ground Truth: 165
+Prediction: 163
+
+Query: what was the first animated movie, full-length, ever released?
+Ground Truth: snow white and the seven dwarfs.
+Prediction: The Adventures of Prince Achmed
+
+Query: which movie had the larger budget, jurassic park or star wars: episode iv - a new hope?
+Ground Truth: jurassic park had the larger budget of $65 million while star wars: episode iv - a new hope had a budget of $11 million usd.
+Prediction: Jurassic Park
+
+Query: can you tell me the name of the first song that lady gaga released?
+Ground Truth: red and blue
+Prediction: Just Dance
+
+Query: what was the stock price of four leaf acquisition corporation at the close of the last month?
+Ground Truth: $10.60
+Prediction: $10.61
+
+Query: what was the total revenue of the top earning company worldwide, target?
+Ground Truth: actually, walmart has the highest revenue earning over $640 billion.
+Prediction: $106,888,003,584
+
+Query: who is the oldest member of nickelback?
+Ground Truth: the oldest member of nickelback is ryan peake.
+Prediction: Mike Kroeger
+
+Query: what color was mr. incredibles suit at the beginning of the first incredibles movie?
+Ground Truth: mr. incredible's blue supersuit is the first supersuit worn on-screen by mr. incredible.
+Prediction: Black and sky blue
+
+Query: what was the volume of apple stock on feb 14 2024
+Ground Truth: the total volume traded apple stocks on feb 14 2024 was 54,543,200
+Prediction: 54,630,500
+
+Query: is algae the original title of the movie?
+Ground Truth: no
+Prediction: Yes
+
+Query: how many billboard music awards has rihanna earned?
+Ground Truth: rihanna has earned 12 billboard music awards.
+Prediction: 22
+
+Query: when was prince, brother of michael jackson, born?
+Ground Truth: invalid question
+Prediction: February 13, 1997
+
+Query: what did matthew perry say about  family in his book
+Ground Truth: perry shared that he felt ready for fatherhood and having a family.
+Prediction: He'd be great father
+
+Query: what is altria group's dividend yield?
+Ground Truth: 9.77%
+Prediction: 0.0958
+
+Query: which has more protein, chicken or beef?
+Ground Truth: chicken
+Prediction: Beef
+
+Query: how many times has lady gaga been nominated for an academy award?
+Ground Truth: lady gaga has been nominated for an academy award four times.
+Prediction: 3
+
+Query: when was the warrior released?
+Ground Truth: 1984-06
+Prediction: September 9, 2011
+
+Query: why does tom hanks play so many parts in polar express?
+Ground Truth: tom hanks plays so many parts to enhance the film's storytelling and character dynamics, allowing one actor to portray multiple distinct personalities within the narrative.
+Prediction: He plays 7 roles
+
+Query: what is the name of dwayne "the rock" johnson's upcoming movie?
+Ground Truth: invalid question
+Prediction: Red One
+
+Query: on 2023-04-25, what was timberwolves's scoring output?
+Ground Truth: 109
+Prediction: invalid question
+
+Query: who are the main celebrity actors in pirates of the caribbean?
+Ground Truth: the main actors in pirates of the caribbean are johnny depp, orlando bloom, geoffrey rush, kiera knightley and kevin mcnally.
+Prediction: Johnny Depp
+
+Query: total dividends of andersons last year?
+Ground Truth: $0.75
+Prediction: $0.74
+
+Query: how many goals were scored in total by chelsea the previous week?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: what are the years that each charlie and the chocolate factory movie came out?
+Ground Truth: the years that the movies in the charlie and the chocolate factory franchise were released are 1971, 2005, 2017, and 2023.
+Prediction: 1971, 2005, 2023
+
+Query: how many times has ariana grande been nominated for the american music award for artist of the year?
+Ground Truth: ariana grande has been nominated for the american music award for artist of the year four times.
+Prediction: 3
+
+Query: how many times has dwayne "the rock" johnson won a kids' choice awards?
+Ground Truth: dwayne "the rock" johnson has won three kids' choice awards.
+Prediction: At least 1
+
+Query: what was the dividend distribution frequency for utah medical products in the year 2023?
+Ground Truth: 4
+Prediction: Quarterly
+
+Query: how many films are there in the "fast & furious" franchise?
+Ground Truth: 10 films
+Prediction: 11
+
+Query: what is the name of toshiko takaezu upcoming art exhibit?
+Ground Truth: invalid question
+Prediction: Toshiko Takaezu: Worlds Within
+
+Query: how many albums has taylor swift released in their career?
+Ground Truth: so far, taylor swift has released a total of 23 albums throughout her career.
+Prediction: 14
+
+Query: how many artist are in the "we are the world" song?
+Ground Truth: 46 vocalists
+Prediction: 45
+
+Query: at what age was michelle trachtenberg in her film debut?
+Ground Truth: she was 10 years old, in her film debut in harriet the spy.
+Prediction: 10
+
+Query: can you provide me with the most recent stock price of lemaitre vascular?
+Ground Truth: $68.87
+Prediction: $69.07
+
+Query: how many times has angela merkel been named as one of the most influential people in the world by time magazine?
+Ground Truth: angela merkel has been named as one of the most influential people in the world by time magazine nine times.
+Prediction: At least 3
+
+Query: how many floors (including floors both above and below ground) does the gevora hotel have?
+Ground Truth: 77
+Prediction: 75
+
+Query: how many guitarists have been members of the band guns n' roses?
+Ground Truth: guns n' roses has had a total of 12 guitarists as members throughout their history.
+Prediction: 6
+
+Query: who are the 3 main characters of oppenheimer?
+Ground Truth: the names of the 3 main characters in oppenheimer are: j. robert oppenheimer, katherine "kitty" oppenheimer, and leslie groves.
+Prediction: Cillian Murphy, Emily Blunt, Matt Damon
+
+Query: how many times has dwayne "the rock" johnson been named as one of time magazine's 100 most influential people in the world?
+Ground Truth: dwayne "the rock" johnson has been named as one of time magazine's 100 most influential people in the world two times, once in 2016 and once in 2019.
+Prediction: 1
+
+Query: how many premium subscribers did spotify gain or lose from the beginning to end of the fiscal year 2022?
+Ground Truth: 23 million subscribers
+Prediction: 25 million gained
+
+Query: how many certified units does beyoncé's best selling alubm sell?
+Ground Truth: beyoncé's best selling album dangerously in love has been sold 6 million certified units.
+Prediction: 11 million
+
+Query: when did drake release his first album?
+Ground Truth: drake released his first album "thank me later" in 2010.
+Prediction: 2006
+
+Query: what was the goal total for cádiz in their last appearance in esp-la liga?
+Ground Truth: 2
+Prediction: 0
+
+Query: how many reading and leeds festivals has the band foo fighters headlined?
+Ground Truth: foo fighters have headlined a total of 4 reading and leeds festivals.
+Prediction: Seven
+
+Query: who was the oppinent that denver nuggets faced in 2023-01-11 in a thrilling game?
+Ground Truth: invalid question
+Prediction: Phoenix Suns
+
+Query: what is the total market capitalization of sprc?
+Ground Truth: 1983700
+Prediction: $9,584,185.00
+
+Query: you know the movie, bolshoi babylon, who was the director?
+Ground Truth: mark franchetti
+Prediction: Nick Read
+
+Query: how many times has dwayne "the rock" johnson appeared in a film as a demigod?
+Ground Truth: dwayne "the rock" johnson has appeared in four films as a demigod, playing maui in "moana" and "once upon a studio", the scorpion king in "the mummy returns" and "the scorpion king", and hercules in "hercules."
+Prediction: 1
+
+Query: what was the low price of meta stock on feb 14 2024
+Ground Truth: meta low stock price on feb 14 2024 is 466.09
+Prediction: $465.60
+
+Query: which company has a higher dividend yield, altria group or keycorp?
+Ground Truth: as of the current financial data, altria group has a higher dividend yield than keycorp, with a dividend yield of 9.74% compared to keycorp's 5.9%.
+Prediction: Altria
+
+Query: can you provide me with the most recent stock price of foghorn therapeutics?
+Ground Truth: $7.40
+Prediction: $7.45
+
+Query: what's the current stock price of cazoo group ltd ordinary shares?
+Ground Truth: i don't know
+Prediction: $4.58
+
+Query: what was the date virgin territory was released for public view?
+Ground Truth: 2007-12-17
+Prediction: December 12, 2007
+
+Query: how many goals were scored in total by brighton the previous week?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: can you provide me with the most recent stock price of royalty pharma?
+Ground Truth: $30.91
+Prediction: $30.90
+
+Query: can you tell me the open price of kvac on the last friday?
+Ground Truth: $10.42
+Prediction: $10.40
+
+Query: what is the total market value of stk's outstanding shares?
+Ground Truth: 73000
+Prediction: $535,990,000.00
+
+Query: can you provide me with the most recent stock price of block?
+Ground Truth: $79.26
+Prediction: $49.77
+
+Query: how many awards has beyoncé won throughout her career?
+Ground Truth: beyoncé has won a total of 614 awards throughout her career, including 32 grammy awards, 29 mtv video music awards, and 21 soul train music awards, among many others, making her one of the most awarded celebrities in history.
+Prediction: 32+
+
+Query: how many guitarists have been part of the band guns n' roses throughout its history?
+Ground Truth: guns n' roses has had a total of 12 guitarists throughout its history.
+Prediction: At least 4
+
+Query: how many times has martin scorsese been nominated for the academy award for best director?
+Ground Truth: martin scorsese has been nominated for the academy award for best director 10 times.
+Prediction: 9
+
+Query: what was the opening price of microsoft (msft) on february 09, 2024?
+Ground Truth: microsoft stock open price is 415.25
+Prediction: $414.48
+
+Query: what year did snoop dogg win a grammy?
+Ground Truth: invalid question
+Prediction: Never
+
+Query: what was the closing price of vnom yesterday?
+Ground Truth: $35.78
+Prediction: $25.29
+
+Query: how many cars does steve harvey own
+Ground Truth: 8
+Prediction: At least 7
+
+Query: what was the average daily high of oblg this week?
+Ground Truth: $0.16
+Prediction: $0.17
+
+Query: how many grammy awards has jay-z won throughout his career?
+Ground Truth: 24 grammy awards
+Prediction: 23
+
+Query: what is the most recent movie directed by jake szymanski?
+Ground Truth: tour de pharmacy
+Prediction: Jury Duty
+
+Query: how many spouses did the latest president of the united states have?
+Ground Truth: joe biden, the latest president of the united states, had a total of two spouses.
+Prediction: 1
+
+Query: who has had more number one hits on the us billboard adult contemporary chart, adele or ed sheeran?
+Ground Truth: adele has had more number one hits on the us billboard adult contemporary chart than ed sheeran, with 6 number one hits compared to ed's 5.
+Prediction: Ed Sheeran
+
+Query: what are the names of the people taylor swift has publicly dated?
+Ground Truth: joe jonas, lucas till, taylor lautner, john mayer, jake gyllenhaal, connor kennedy, harry styles, calvin harris, tom hiddleston, joe alwyn, matty healy, and currently travis kelce.
+Prediction: Joe Jonas, Jake Gyllenhaal, John Mayer, Harry Styles, Tom Hiddleston, Taylor Lautner, Joe Alwyn, Travis Kelce
+
+Query: when did julia roberts win her first oscar?
+Ground Truth: 2001
+Prediction: 2000
+
+Query: who is older, justin bieber or hailey bieber?
+Ground Truth: justin beiber is older, at 29 years old while hailey bieber is 27 years old.
+Prediction: Justin Bieber
+
+Query: does neil degrasse tyson have a degree in astrophysics?
+Ground Truth: invalid question
+Prediction: Yes
+
+Query: how many sales were made by wild wild west at the box office across the globe?
+Ground Truth: 222104681
+Prediction: $222 million
+
+Query: how many documentaries has leonardo dicaprio produced about environmental issues?
+Ground Truth: leonardo dicaprio has produced nine documentaries about environmental issues.
+Prediction: At least 2
+
+Query: has leonardo dicaprio or brad pitt won more academy awards?
+Ground Truth: brad pitt
+Prediction: DiCaprio
+
+Query: how many months did it take to release the first toy story movie?
+Ground Truth: it took 4 years to make the first toy story film, making it 48 months to release the movie.
+Prediction: 10 months
+
+Query: which team went head-to-head with denver nuggets in 2023-01-25?
+Ground Truth: invalid question
+Prediction: Milwaukee Bucks
+
+Query: can i make sashimi with slow cookers?
+Ground Truth: no
+Prediction: invalid question
+
+Query: who is the most popular artist according to spotify, ed sheeran or taylor swift?
+Ground Truth: ed sheeran is the most-followed artist on spotify
+Prediction: Taylor Swift
+
+Query: when was robert zemeckis born?
+Ground Truth: 1952-05-14
+Prediction: invalid question
+
+Query: what was the peak stock price of erf during the past week?
+Ground Truth: $17.76
+Prediction: $19.02
+
+Query: in their matches from the previous week, what is the total number of goals forced by wolves?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: how much money did meta earn in 2022?
+Ground Truth: in 2022, meta earned 116,609 million usd in revenue.
+Prediction: $134.9B
+
+Query: how old is dave franco's oldest brother?
+Ground Truth: dave franco's oldest brother, james franco, is 45 years old.
+Prediction: 46
+
+Query: who is older, will farrell or mark wahlberg?
+Ground Truth: will farrell is older at the age of 56.
+Prediction: Will Ferrell
+
+Query: how many concerts has the band queen performed that have been released on dvd?
+Ground Truth: queen has performed a total of 23 concerts that have been released on dvd.
+Prediction: At least 7
+
+Query: how many grammy awards has adele won for her album "21"?
+Ground Truth: adele won 7 grammy awards for her album "21", including album of the year, record of the year, and song of the year.
+Prediction: 6
+
+Query: who won best new artist at the 61st grammy (2018)?
+Ground Truth: dua lipa
+Prediction: Alessia Cara
+
+Query: did nice play their last fra-ligue 1 game on home soil or on foreign soil?
+Ground Truth: home
+Prediction: Away
+
+Query: can you tell me who is the current usa today's sister company?
+Ground Truth: usa today sports weekly
+Prediction: Gannett
+
+Query: what's the vertical extent of the observatory housed in shanghai tower?
+Ground Truth: 562 m
+Prediction: 546-552m
+
+Query: what are the names of everybody in the beach boys?
+Ground Truth: al jardine, carl wilson, dennis wilson, brian wilson, mike love, david marks, al jardine, glen campbell, bruce johnston, blondie chaplin, ricky fataar, bruce johnston, carl wilson, david marks
+Prediction: Al Jardine, Brian Wilson, Ricky Fataar, Mike Love, Glen Campbell, Dennis Wilson, Bruce Johnston, Carl Wilson, Blondie Chaplin, David Marks
+
+Query: how many minarets does imam reza shrine have?
+Ground Truth: 12
+Prediction: 14
+
+Query: what did chad kroeger do before joining nickelback?
+Ground Truth: he was part of another band, village idiot, before joining nickelback.
+Prediction: Local performances
+
+Query: how many units did the beatles sell in their career so far?
+Ground Truth: the beatles have sold a total estimated units of 600 million worldwide.
+Prediction: Over 2.6 billion
+
+Query: who is the american singer-songwriter who has won 11 grammy awards and is known for her unique voice and poignant lyrics, including her hit songs "both sides now" and "big yellow taxi"?
+Ground Truth: joni mitchell is the american singer-songwriter who has won 11 grammy awards and is known for her unique voice and poignant lyrics, including her hit songs "both sides now" and "big yellow taxi", which have become iconic in the folk rock genre.
+Prediction: invalid question
+
+Query: who was the primary songwriter for the beatles?
+Ground Truth: invalid question
+Prediction: Lennon/McCartney
+
+Query: who was the second oldest member of the jackson 5?
+Ground Truth: jackie jackson
+Prediction: Tito Jackson
+
+Query: what is the vertical distance between usoi dam and tabqa dam in meters?
+Ground Truth: 507
+Prediction: 386
+
+Query: when did the most expensive action movie come out?
+Ground Truth: the most expensive action movie ever produced, star wars: the force awakens, came out in 2015.
+Prediction: 2011
+
+Query: what were paul walker's last five films?
+Ground Truth: paul walker's last five films were furious 7 (2015), brick mansions (2014), pawn shop chronicles (2013), hours (2013), and vehicle 19 (2013).
+Prediction: Furious 7, Brick Mansions, Hours, Fast & Furious 6, Vehicle 19
+
+Query: what was the total market value of aisp's shares?
+Ground Truth: 206100
+Prediction: $36,499,277.00
+
+Query: what was the date for the first release of the revenge of larry?
+Ground Truth: 1913
+Prediction: 2004-01-01
+
+Query: what is the most popular song on billboard in 2024-02-28?
+Ground Truth: texas hold 'em
+Prediction: Lovin on Me
+
+Query: what are three tv shows returning for new seasons in 2024?
+Ground Truth: the umbrella academy, fallout, grey's anatomy and more
+Prediction: Tokyo Vice, Hacks, Severance
+
+Query: how many movies have featured songs by the band queen?
+Ground Truth: 94 movies have featured songs by the band queen.
+Prediction: At least 20
+
+Query: how long would it take for five migrations of lesser striped swallows?
+Ground Truth: the birds migrate south july/august und head back to the north between february/may. five migrations of this species would take anywhere between 3-5 years.
+Prediction: invalid question
+
+Query: what percentage of tencent music users are premium subscribers?
+Ground Truth: 11.19%
+Prediction: 11.1%
+
+Query: what was the peak daily stock price of hour over the past week?
+Ground Truth: $1.25
+Prediction: $1.46
+
+Query: when does macaulay culkin make an appearanace in home sweet home alone?
+Ground Truth: invalid question
+Prediction: Never
+
+Query: which movie had the higher box office earnings, whiplash or the big lebowski?
+Ground Truth: whiplash had a box office earnings, with a profit of $49 million, while the big lebowski earned $46.7 million.
+Prediction: The Big Lebowski
+
+Query: what is the latest stock price of rcm today?
+Ground Truth: $14.64
+Prediction: $14.65
+
+Query: what other songs did the artist release in the same year as save me?
+Ground Truth: 2
+Prediction: Fire
+
+Query: what is the most popular dog breed for families?
+Ground Truth: the most popular family dog is the golden retriever. they are outgoing  and easy to please and are known to be great around children of all ages.
+Prediction: Labrador Retriever
+
+Query: what's the name of the actress who played the role of maleficent's daughter in the movie "maleficent"?
+Ground Truth: the actress who played the role of maleficent's daughter in the movie "maleficent" is elle fanning. she portrayed the role of aurora, the current ruler of moors.
+Prediction: invalid question
+
+Query: what are the names of all the movies in the chronicles of narnia franchise?
+Ground Truth: the names of the movies in the chronicles of narnia franchise are "the lion the witch and the wardrobe", "prince caspian", and "the voyage of the dawn treader".
+Prediction: Lion, Witch, Wardrobe, Prince Caspian, Voyage of Dawn Treader
+
+Query: how many tv shows did lewis milestone direct throughout his career?
+Ground Truth: lewis milestone directed six tv shows throughout his career.
+Prediction: 2
+
+Query: what's the symnol of the constellation that contains iota pegasi?
+Ground Truth: the winged horse
+Prediction: Peg
+
+Query: what are the total amount of awards that zendaya been nominated for?
+Ground Truth: zendaya has a total of 94 award nominations.
+Prediction: Unknown number of awards
+
+Query: how many traps did kevin mccallister have in the first home alone movie?
+Ground Truth: there are 14 booby traps in total
+Prediction: 15
+
+Query: who was chris pratt married to in 2005?
+Ground Truth: invalid question
+Prediction: Anna Faris
+
+Query: how many times has lady gaga been credited with an acting role?
+Ground Truth: lady gaga currently has 48 acting credits.
+Prediction: At least 6
+
+Query: what are the names of all the movies in the shrek franchise?
+Ground Truth: the names of the movies in the shrek franchise are "shrek", "shrek 2", "shrek the third", and "shrek forever after".
+Prediction: Shrek, Shrek 2, Shrek the Third, Shrek Forever After, Puss in Boots, Puss in Boots: The Last Wish
+
+Query: what's the market cap of crkn?
+Ground Truth: 2711200
+Prediction: $3,086,835.00
+
+Query: which girl band was alicia keys a member of?
+Ground Truth: invalid question
+Prediction: 3LW
+
+Query: how much was the last dividend from investcorp india acquisition corp. warrant?
+Ground Truth: i don't know
+Prediction: No Dividends
+
+Query: who was the first actress to play the role of a female action hero in a live-action movie?
+Ground Truth: pam grier was the first actress to play the role of a female action hero in a live-action movie, foxy brown (1974), directed by jack hill.
+Prediction: Sigourney Weaver
+
+Query: on today's market, what is the price of rcl's stock?
+Ground Truth: $122.94
+Prediction: $122.83
+
+Query: in their matches from the previous week, what is the total number of goals forced by girona?
+Ground Truth: invalid question
+Prediction: 0
+
+Query: cadiz inc. depositary shares total volume for first week in feb
+Ground Truth: 17500
+Prediction: 24,500
+
+Query: how many albums has lady gaga released?
+Ground Truth: lady gaga has released seven studio albums, including "the fame," "born this way," and "joanne."
+Prediction: 5
+
+Query: what is the current market cap of nml?
+Ground Truth: 309900
+Prediction: $393,780,000.00
+
+Query: what was alcc's opening stock price on the previous friday?
+Ground Truth: $10.64
+Prediction: $10.59
+
+Query: what are justin bieber's three most recent releases?
+Ground Truth: beautiful love (free fire), i feel funny, intentions (acoustic)
+Prediction: Beautiful Love, I Feel Funny, My Worlds Acoustic
+
+Query: was bob marley's first hit single a reggae version of a classical symphony?
+Ground Truth: robert nesta marley om was a jamaican reggae singer, guitarist, and songwriter.
+Prediction: invalid question
+
+Query: what was the date for the first release of god of thunder?
+Ground Truth: 2015-05-06
+Prediction: 2011
+
+Query: what was the singer of the song that won song of the year in the 59th grammy (2016)?
+Ground Truth: adele
+Prediction: Ed Sheeran
+
+Query: can you tell me the release date of move?
+Ground Truth: 2010-06-18
+Prediction: 2011-02-03
+
+Query: who is the main character in the ww1 movie, saving private ryan?
+Ground Truth: invalid question
+Prediction: Captain Miller
+
+Query: what are the names of all the movies in the marvel cinematic universe (mcu) that have won an academy award?
+Ground Truth: the names of the movies in the marvel cinematic universe (mcu) that have won an academy award are "black panther"and "black panther: wakanda forever".
+Prediction: Black Panther
+
+Query: how many zip codes are there in montgomery, alabama?
+Ground Truth: 16
+Prediction: 36
+
+Query: how much percentage has spotify's subscribers increased by since 2021?
+Ground Truth: 33.33%
+Prediction: 25 million / 180 million = 0.139 or 13.9%
+
+Query: how many days did qwest corporation 6.75% notes due 2057 open higher during the current week?
+Ground Truth: 0
+Prediction: 1
+
+Query: who is the most-followed music artist on instagram at the moment?
+Ground Truth: selena gomez
+Prediction: Ariana Grande
+
+Query: who is the most streamed spotify artist?
+Ground Truth: taylor swift
+Prediction: Drake
+
+Query: when did drake release their most popular album?
+Ground Truth: drake's most popular album, take care, released in 2011.
+Prediction: Views
+
+Query: how deep is the deepest lake of new york?
+Ground Truth: oneida lake, the deepest lake in new york, is 618 ft deep at its deepest point.
+Prediction: 802 feet
+
+Query: was tron the first to use computer-generated imagery (cgi) entirely?
+Ground Truth: invalid question
+Prediction: No
+
+Query: do you know how many people are in the weeknd?
+Ground Truth: 0
+Prediction: 1
+
+Query: what are the 2 longest rivers in nevada?
+Ground Truth: the 2 longest rivers in nevada are the colorado river and the humboldt river.
+Prediction: Humboldt, Bear
+
+Query: who were the members of the band the cure during their "disintegration" era?
+Ground Truth: the members of the cure during their "disintegration" era were robert smith, simon gallup, lol tolhurst , porl thompson, roger o'donnell, and jason cooper.
+Prediction: Robert Smith, Simon Gallup, Roger O'Donnell, Boris Williams
+
+Query: what are the top 3 countries with the largest feldspar production?
+Ground Truth: turkey, india, italy
+Prediction: Turkey, China, Italy
+
+Query: did alavés play their last esp-la liga game at home or away?
+Ground Truth: home
+Prediction: Away
+
+Query: how many albums has the band metallica released that have been certified platinum by the riaa?
+Ground Truth: metallica has released a total of 13 albums that have been certified platinum by the riaa.
+Prediction: At least 2
+
+Query: what was the number of days that cpi aerostructures saw a higher open price from the previous day's close this week?
+Ground Truth: 1
+Prediction: 2
+
+Query: what's avgo's price today?
+Ground Truth: $1,290.16
+Prediction: $1,289.27
+
+Query: which country won more gold medals at the 2022 olympics, usa or china?
+Ground Truth: china
+Prediction: USA
+
+Query: what is the smallest island of hawaii?
+Ground Truth: kahoolawe
+Prediction: Maro Reef
+
+Query: how many songs has bob dylan written?
+Ground Truth: bob dylan is credited with having written over 745 songs throughout his career.
+Prediction: Over 600
+
+Query: how small is the smallest state in the us?
+Ground Truth: the smallest state in the us, rhode island, is about 3,144 square kilometers big.
+Prediction: 1,545 sq mi
+
+Query: what team will everton go head-to-head against in eng-premier league in their next league match?
+Ground Truth: liverpool
+Prediction: Bournemouth
+
+Query: what are all the titles held by kate middleton?
+Ground Truth: duchess of cambridge, countess of strathearn, baroness carrickfergus, duchess of cornwall, duchess of rothesay, princess of wales, countess of chester
+Prediction: Duchess of Cambridge, Countess of Strathearn, Lady Carrickfergus, Princess of UK.
+
+Query: tell me how old was dua lipa when she released her first song.
+Ground Truth: dua lipa was 19
+Prediction: 20
+
+Query: what year did lord of the rings: return of the king win the most academy awards in a single year, including best picture, best director, and best actor?
+Ground Truth: invalid question
+Prediction: 2004
+
+Query: what is the name of chris hemsworth's upcoming movie for release in 2024?
+Ground Truth: invalid question
+Prediction: Furiosa
+
+Query: why did joe biden decide to run for president
+Ground Truth: biden has expressed concern about the direction of the united states under the trump administration and has advocated for what he sees as a return to more traditional values and policies.
+Prediction: Sense of duty
+
