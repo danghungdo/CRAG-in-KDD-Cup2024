@@ -13,7 +13,7 @@ from retriever import get_all_chunks
 
 # embeddings = OpenAIEmbeddings(api_key="<your-api-key>", base_url="<your-base-url>")
 embeddings = HuggingFaceBgeEmbeddings(
-    model_name="embedding_models/bge-m3",
+    model_name="/home/dang.hung.do/workspace/CRAG-in-KDD-Cup2024/models/retrieve/embedding_models/bge-m3",
     model_kwargs = {'device': 'cuda'},
     encode_kwargs = {'normalize_embeddings': True}, # set True to compute cosine similarity
     query_instruction = "",
@@ -43,7 +43,8 @@ vectorstore = Milvus(
 )
 
 all_data = []
-with bz2.open('data/crag_task_1_dev_v3_release.jsonl.bz2', "rt") as f:
+# with bz2.open('data/crag_task_1_dev_v3_release.jsonl.bz2', "rt") as f:
+with bz2.open("/home/dang.hung.do/workspace/CRAG-in-KDD-Cup2024/example_data/crag_task_1_dev_v4_release.jsonl.bz2", "rt") as f:
     for line in f:
         all_data.append(json.loads(line))
 

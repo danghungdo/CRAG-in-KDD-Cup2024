@@ -165,6 +165,7 @@ class Retriever_Milvus:
             uri=uri,
             embedding_field="vector",
             text_key="text",
+            dim=1024
         )
         self.index = VectorStoreIndex.from_vector_store(vector_store, embed_model=self.embedding_model)
         self.rerank = rerank
