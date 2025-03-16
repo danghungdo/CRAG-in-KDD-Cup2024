@@ -2,6 +2,8 @@ from models.load_model import load_model
 from prompts.templates import IN_CONTEXT_EXAMPLES, INSTRUCTIONS
 from tqdm import tqdm
 import json
+import os
+from dotenv import load_dotenv
 from loguru import logger
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -61,13 +63,23 @@ def evaluate_predictions(queries, ground_truths, predictions, evaluation_model):
 
         messages.append({"query": query, "ground_truth": ground_truth, "prediction": prediction})
 
+    incorrect_predictions = []
+    
     for i in tqdm(range(0, len(messages), BATCH_SIZE)):
         batch = messages[i:i + BATCH_SIZE]
         responses = chain.batch(batch)
-        for response in responses:
+        for j, response in enumerate(responses):
             eval_res = parse_response(response)
             if eval_res == 1:
                 n_correct += 1
+            else:
+                incorrect_predictions.append(batch[j])
+                
+    # with open("incorrect_predictions_task1_milvus_simple.txt", "w") as file:
+    #     for item in incorrect_predictions:
+    #         file.write(f"Query: {item['query']}\nGround Truth: {item['ground_truth']}\nPrediction: {item['prediction']}\n\n")
+                
+                
 
     n = len(predictions)
     results = {
@@ -85,15 +97,19 @@ def evaluate_predictions(queries, ground_truths, predictions, evaluation_model):
     return results
 
 if __name__ == "__main__":
+    load_dotenv()
     # Load the model
     # api_key = "<your-api-key>"
-    api_key = "ollama" # random
+    # api_key = "ollama" # random
+    api_key = os.getenv("INTERWEB_APIKEY")
     # base_url = "<your-api-base>"
-    base_url = "http://gpunode04.kbs:11434/v1/"
-    evaluation_model = load_model(model_name="gemma2:27b", api_key=api_key, base_url=base_url, temperature=0)
+    # base_url = "http://gpunode04.kbs:11434/v1/"
+    base_url = "https://interweb.l3s.uni-hannover.de"
+    model_name = "llama3.3:70b"
+    evaluation_model = load_model(model_name=model_name, api_key=api_key, base_url=base_url, temperature=0)
 
     # Evaluate the predictions
-    predictions_path = "results/llama3.3_70b_predictions_task1.jsonl"
+    predictions_path = "results/llama3.3_70b_predictions_task2_milvus_bge_fpd.jsonl"
     with open(predictions_path, "r") as file:
         predictions = [json.loads(line) for line in file]
 
