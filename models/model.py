@@ -5,6 +5,67 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda
 
+class FalsePremiseDetector:
+    def __init__(self, chat_model):
+        SYSTEM_PROMPT = "You are an advanced AI system specializing in analyzing and detecting logical fallacies, particularly false premises, in questions"
+        USER_PROMPT = """Your task is to evaluate questions, determine if they contain a false premise, and provide clear feedback. 
+        Follow these guidelines:
+        1. Identify False Premises: Analyze the question to detect assumptions or assertions that are factually incorrect, logically inconsistent, or based on misinformation.
+        2. Provide Explanation: If a false premise is detected, explain clearly why it is incorrect and specify the accurate information or context.
+        3. Assess Ambiguity: If the question is ambiguous, identify possible interpretations and evaluate whether any contain a false premise.
+        4. Be Objective and Precise: Your responses should be neutral, fact-based, and concise. Avoid making assumptions beyond the question's content unless necessary for clarity.
+        5. Use the folowing format: 
+            - Start with `## Thought\n` and explain your reasoning.
+            - End with `## Final Answer\n` followed by either `True` (if the question contains a false premise) or `False` (if the question does not contain a false premise).
+            - Important: only return `True` if you are 100% certain that the question contains a false premise.
+
+        **Examples**:
+
+        Input: "When did Hamburg become the biggest city in Germany?"
+        Output:
+        ## Thought 
+        The question contains a false premise because Hamburg has never been the biggest city in Germany. Berlin is the largest city.
+        ## Final Answer
+        True
+
+        Input: "When was 'Soul' released on Hulu?"
+        Output:
+        ## Thought
+        The question contains a false premise because Pixar's 'Soul' was not released on Hulu. It premiered on Disney+ on December 25, 2020.
+        ## Final Answer
+        True
+
+        Input: "What is the capital of France?"
+        Output:
+        ## Thought
+        The question does not contain a false premise. It is a valid and factual question.
+        ## Final Answer
+        False
+
+        **Evaluate the following question under this framework step by step:**
+        {query}
+        """
+        messages = ChatPromptTemplate.from_messages([("system", SYSTEM_PROMPT), ("user", USER_PROMPT)])
+        self.chain = messages | chat_model | StrOutputParser() | self.get_final_answer_content
+    
+    def get_final_answer_content(self, text):
+        # Find the position of the marker string
+        marker = "## Final Answer"
+        marker_index = text.find(marker)
+        # print("mark:", marker_index)
+        if marker_index == -1:
+            return "Unknown"
+        
+        # Get the content after the marker string
+        content_start_index = marker_index + len(marker)
+        final_answer_content = text[content_start_index:].strip()
+        
+        return final_answer_content
+
+    def batch_generate_answer(self, batch):
+        queries = batch["query"]
+        return self.chain.batch(queries)
+
 class RAGModel:
     """
     An example RAGModel for the KDDCup 2024 Meta CRAG Challenge
@@ -16,7 +77,7 @@ class RAGModel:
     def initialize_models(self, chat_model, retriever, domain_router, dynamic_router, use_kg):
         assert domain_router is not None, "Domain Router model is required."
         self.use_kg = use_kg
-        SYSTEM_PROMPT = "You are a helpful assistant."
+        SYSTEM_PROMPT = "You are a helpful assistant"
         if use_kg:
             self.api = MockAPI(chat_model)
             self.domain2template = {
@@ -108,38 +169,38 @@ class RAGModel:
         # Get KG information
         if self.use_kg:
             kg_infos = self.api.get_kg_info(queries, query_times, domains)
-            inputs = [{"query": query, "query_time": query_time, "kg_info": kg_info, "retrieval_results": retrieval_results, "domain": domain} for query, query_time, kg_info, retrieval_results, domain in zip(queries, query_times, kg_infos, batch_retrieval_results, domains)]
+            inputs = [{"query": query, "query_time": query_time, "kg_info": kg_info, "retrieval_results": retrieval_results, "domain": domain, "dynamic": dynamic} for query, query_time, kg_info, retrieval_results, domain, dynamic in zip(queries, query_times, kg_infos, batch_retrieval_results, domains, dynamics)]
         else:
-            inputs = [{"query": query, "query_time": query_time, "retrieval_results": retrieval_results, "domain": domain} for query, query_time, retrieval_results, domain in zip(queries, query_times, batch_retrieval_results, domains)]
+            inputs = [{"query": query, "query_time": query_time, "retrieval_results": retrieval_results, "domain": domain, "dynamic": dynamic} for query, query_time, retrieval_results, domain, dynamic in zip(queries, query_times, batch_retrieval_results, domains, dynamics)]
 
         # Generate responses via vllm
         responses = self.rag_chain.batch(inputs)
-
+        return responses
         # Aggregate answers into List[str]
-        answers = []
-        for i, answer in enumerate(responses):
-            if self.use_kg:
-                if domains[i] in ["open"] and self.dynamic_router and dynamics[i] in ["fast-changing", "real-time"]:
-                    answer = "I don't know"
+        # answers = []
+        # for i, answer in enumerate(responses):
+        #     if self.use_kg:
+        #         if domains[i] in ["open"] and self.dynamic_router and dynamics[i] in ["fast-changing", "real-time"]:
+        #             answer = "I don't know"
 
-                if domains[i] in ["open", "movie", "music"] and "average" in queries[i]:
-                    answer = "I don't know"
-            else:
-                if self.dynamic_router and dynamics[i] in ["fast-changing", "real-time"]:
-                    answer = "I don't know"
-                elif domains[i] in ["finance"]:
-                    answer = "I don't know"
-                if "average" in queries[i]:
-                    answer = "I don't know"
+        #         # if domains[i] in ["open", "movie", "music"] and "average" in queries[i]:
+        #         #     answer = "I don't know"
+        #     else:
+        #         if self.dynamic_router and dynamics[i] in ["fast-changing", "real-time"]:
+        #             answer = "I don't know"
+        #     #     elif domains[i] in ["finance"]:
+        #     #         answer = "I don't know"
+        #     #     if "average" in queries[i]:
+        #     #         answer = "I don't know"
 
-            if "how many shares" in queries[i] or "legal tender" in queries[i] or "whick five" in queries[i] or "low and high" in queries[i]:
-                answer = "I don't know"
-            if "$0.01" in answer:
-                answer = "I don't know"
+        #     # if "how many shares" in queries[i] or "legal tender" in queries[i] or "whick five" in queries[i] or "low and high" in queries[i]:
+        #     #     answer = "I don't know"
+        #     # if "$0.01" in answer:
+        #     #     answer = "I don't know"
             
-            answers.append(answer)
+        #     answers.append(answer)
   
-        return answers
+        # return answers
     
     def get_reference(self, retrieval_results):
         references = ""
@@ -160,13 +221,14 @@ class RAGModel:
         kg_info = input["kg_info"]
         retrieval_results = input["retrieval_results"]
         domain = input["domain"]
+        dynamic = input["dynamic"]
         if domain in ["finance", "sports"]:
             references = self.get_reference([kg_info])
         elif domain in ["movie", "music"]:
             references = self.get_reference([kg_info]+retrieval_results)
         else:
             references = self.get_reference(retrieval_results)
-        messages = self.domain2template[domain].format_messages(query=query, query_time=query_time, references=references)
+        messages = self.domain2template[domain].format_messages(query=query, query_time=query_time, references=references, dynamic=dynamic)
         return messages
     
     def format_messages_without_kg(self, input):
@@ -174,8 +236,9 @@ class RAGModel:
         query_time = input["query_time"]
         retrieval_results = input["retrieval_results"]
         domain = input["domain"]
+        dynamic = input["dynamic"]
         references = self.get_reference(retrieval_results)
-        messages = self.domain2template[domain].format_messages(query=query, query_time=query_time, references=references)
+        messages = self.domain2template[domain].format_messages(query=query, query_time=query_time, references=references, dynamic=dynamic)
         return messages
         
     def get_final_answer_content(self, text):
