@@ -28,177 +28,470 @@ Prediction: I am sorry I don't know.
 Accuracy: False
 """
 
-COT_PROMPT = """For the given question and multiple references from web pages, think step by step, then provide the final answer.
-Current date: {query_time}
+COT_PROMPT = """_For the given question and multiple references from web pages, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`
-- If you don't know the answer, you MUST respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_MOVIE_KG = """For the given question and multiple references from Mock API and Web Pages, think step by step, then provide the final answer.
-Current date: {query_time}
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `when was "soul" released on hulu?` (The movie "Soul" was not released on Hulu. Instead, it was released on Disney+.)
-    - `what year did the simpsons stop airing?` ("The Simpsons" is an ongoing series that has been continuously airing new episodes for over three decades.)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+FEWSHOT_COT_MOVIE_KG = """_For the given question and multiple references from web pages and Mock API, follow a step-by-step reasoning approach before providing the final answer._  
+
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_MUSIC_KG = """For the given question and multiple references from Mock API and Web Pages, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_MUSIC_KG = """_For the given question and multiple references from web pages and Mock API, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `how long was phil rudd the drummer for the band van halen?` (Phil Rudd was the drummer for AC/DC, and Alex Van Halen has been the primary drummer for Van Halen.)
-    - `what was the name of justin bieber's album last year?` (Justin Bieber did not release an album last year.)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_SPORTS_KG = """For the given question and multiple references from Mock API, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_SPORTS_KG = """_For the given question and multiple references from Mock API, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `what's the latest score update for OKC's game today?` (There is no game for OKC today)
-    - `how many times has curry won the nba dunk contest?` (Steph Curry has never participated in the NBA dunk contest)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_FINANCE_KG = """For the given question and multiple references from Mock API, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_FINANCE_KG = """_For the given question and multiple references from Mock API, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `what is the price of bitcoin when it launch in 2015?` (Bitcoin was launched in 2009.)
-    - `which country has adopted ethereum as legal tender?` (In reality, no country has done so.)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_MOVIE = """For the given question and multiple references from Web Pages, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_MOVIE = """_For the given question and multiple references from web pages, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `when was "soul" released on hulu?` (The movie "Soul" was not released on Hulu. Instead, it was released on Disney+.)
-    - `what year did the simpsons stop airing?` ("The Simpsons" is an ongoing series that has been continuously airing new episodes for over three decades.)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_MUSIC = """For the given question and multiple references from Web Pages, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_MUSIC = """_For the given question and multiple references from web pages, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `how long was phil rudd the drummer for the band van halen?` (Phil Rudd was the drummer for AC/DC, and Alex Van Halen has been the primary drummer for Van Halen.)
-    - `what was the name of justin bieber's album last year?` (Justin Bieber did not release an album last year.)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_SPORTS = """For the given question and multiple references from Web Pages, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_SPORTS = """_For the given question and multiple references from web pages, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `what's the latest score update for OKC's game today?` (There is no game for OKC today)
-    - `how many times has curry won the nba dunk contest?` (Steph Curry has never participated in the NBA dunk contest)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
 """
 
-FEWSHOT_COT_FINANCE = """For the given question and multiple references from Web Pages, think step by step, then provide the final answer.
-Current date: {query_time}
+FEWSHOT_COT_FINANCE = """_For the given question and multiple references from web pages, follow a step-by-step reasoning approach before providing the final answer._  
 
-Note: 
-- For your final answer, please use as few words as possible. 
-- The user's question may contain factual errors, in which case you MUST reply `invalid question`. Here are some examples of invalid questions:
-    - `what is the price of bitcoin when it launch in 2015?` (Bitcoin was launched in 2009.)
-    - `which country has adopted ethereum as legal tender?` (In reality, no country has done so.)
-- If you don't know the answer, you MUST respond with `I don't know`
-- If the references do not contain the necessary information to answer the question, respond with `I don't know`
-- Using only the refernces below and not prior knowledge, if there is no reference, respond with `I don't know`
-- Your output format needs to meet the requirements: First, start with `## Thought\n` and then output the thought process regarding the user's question. After you finish thinking, you MUST reply with the final answer on the last line, starting with `## Final Answer\n` and using as few words as possible.
+
+## **Instructions for Answering the Question:**  
+
+### **1. Analyze the Question & References:**  
+- Read the question carefully and examine all provided references.  
+- Determine if the references contain sufficient and relevant information to answer the question.  
+
+### **2. Classify the Question Type:**  
+- **Static / Slow-Changing:** If the information in references is adequate, use your prior knowledge but only if you are **100% certain**.  
+  - When using prior knowledge, always consider the **query time** and ensure the information remains relevant as of that date.  
+- **Fast-Changing / Real-Time:** You **must rely on the provided references** to answer the question, even if you have prior knowledge.  
+
+### **3. Step-by-Step Reasoning:**  
+- If references provide conflicting or ambiguous information, prioritize credibility and cross-verify details.  
+- Ensure the answer is fact-based, concise, and neutral. Avoid assumptions beyond the given information unless required for clarity.  
+- When using prior knowledge, explicitly consider and mention whether the information is still valid given the **query time**.  
+
+### **4. Deliver the Final Answer:**  
+- If the references are sufficient, provide a **precise and well-supported response**.  
+- If the references are **insufficient or unclear**, respond with **"I don't know"** rather than speculating.
+- The final answer should be derived from reasoning and few words as possible.
+
+---  
+
+## **Response Format:**  
+
+```  
+`## Thought\n`  
+(Your logical reasoning process based on the provided instructions.)  
+
+`## Final Answer\n`
+(The concise and objective final answer, it must be few words as possible.)  
+```  
+> **Important:** The final answer should be consistent with your `## Thought` and clearly supported by the references or by your validated prior knowledge (taking into account querry time).  
+
+---  
 
 ### Question
 {query}
+
+### Query Time
+{query_time}
+
+### Question Type
+{dynamic}
 
 ### References
 {references}
